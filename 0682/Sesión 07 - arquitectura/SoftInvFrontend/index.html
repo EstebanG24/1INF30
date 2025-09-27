@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoftInv - Gestión de Almacenes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>SoftInv</h1>
+        <p class="subtitle">Gestión de Almacenes</p>
+    </header>
+
+    <main class="app-container">
+        <section class="form-section">
+            <h2 id="form-title">Registrar almacén</h2>
+            <form id="warehouse-form">
+                <input type="hidden" id="warehouse-id">
+
+                <label for="warehouse-name">Nombre del almacén</label>
+                <input type="text" id="warehouse-name" placeholder="Ej. Almacén Central" required>
+
+                <label class="checkbox">
+                    <input type="checkbox" id="warehouse-central">
+                    <span>¿Es almacén central?</span>
+                </label>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn primary">Guardar</button>
+                    <button type="button" id="cancel-edit" class="btn secondary hidden">Cancelar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <div class="list-header">
+                <h2>Almacenes registrados</h2>
+                <input type="search" id="search" placeholder="Buscar por nombre...">
+            </div>
+            <table class="warehouse-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="warehouse-list">
+                    <!-- Las filas se generan dinámicamente -->
+                </tbody>
+            </table>
+            <p id="empty-state" class="empty-state hidden">No se encontraron almacenes.</p>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <small>Proyecto académico SoftInv &mdash; Capa de presentación</small>
+    </footer>
+
+    <template id="warehouse-row-template">
+        <tr>
+            <td data-cell="id"></td>
+            <td data-cell="name"></td>
+            <td data-cell="type"></td>
+            <td class="actions">
+                <button type="button" data-action="edit" class="btn icon">
+                    ✏️ <span class="sr-only">Editar</span>
+                </button>
+                <button type="button" data-action="delete" class="btn icon danger">
+                    🗑️ <span class="sr-only">Eliminar</span>
+                </button>
+            </td>
+        </tr>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html>

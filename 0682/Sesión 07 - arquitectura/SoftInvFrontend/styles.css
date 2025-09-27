@@ -1,0 +1,221 @@
+:root {
+    color-scheme: light dark;
+    --color-primary: #3b82f6;
+    --color-primary-dark: #1d4ed8;
+    --color-danger: #ef4444;
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-border: #dbeafe;
+    --color-text: #0f172a;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header, .app-footer {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.1);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.app-header .subtitle {
+    margin: 0.25rem 0 0;
+    font-weight: 300;
+}
+
+.app-container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 2rem;
+    flex: 1;
+}
+
+section {
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    border: 1px solid var(--color-border);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="search"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus {
+    outline: 2px solid var(--color-primary);
+    border-color: transparent;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox input {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn {
+    border: none;
+    border-radius: 9999px;
+    padding: 0.65rem 1.5rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn.primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn.primary:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn.secondary {
+    background: rgba(59, 130, 246, 0.12);
+    color: var(--color-primary-dark);
+}
+
+.btn.secondary:hover {
+    filter: brightness(0.98);
+}
+
+.btn.icon {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+}
+
+.btn.icon.danger {
+    color: white;
+    background: var(--color-danger);
+}
+
+.btn.icon.danger:hover {
+    filter: brightness(0.95);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.list-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .list-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #search {
+        max-width: 280px;
+    }
+}
+
+.warehouse-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.warehouse-table thead {
+    background: rgba(59, 130, 246, 0.12);
+}
+
+.warehouse-table th,
+.warehouse-table td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+}
+
+.warehouse-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+    transition: background 0.2s ease;
+}
+
+.warehouse-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.08);
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 1rem;
+    color: #64748b;
+}
+
+.app-footer {
+    font-size: 0.85rem;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
